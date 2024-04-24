@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "230757439740",
+    "project_id": "onepicard-4f27d",
+    "storage_bucket": "onepicard-4f27d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230757439740:android:66da7155c2b014114f5f79",
+        "android_client_info": {
+          "package_name": "com.example.onepi_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDViuI88rKHMnCO4kZ6Z37ncCvS_Z5dh84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
