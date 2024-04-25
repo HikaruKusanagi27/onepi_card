@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:onepi_app/deckeedit/dekeedit_page.dart';
+import 'package:onepi_app/deckeedit/deckeedit_page.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(30),
             child: Image.asset(
-              'assets/images/onepi.png',
+              'assets/images/img_300694_17.jpg',
             ),
           ),
           Expanded(

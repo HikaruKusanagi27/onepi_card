@@ -7,6 +7,8 @@ environment:
   sdk: '>=3.3.4 <4.0.0'
 
 dependencies:
+  cached_network_image: ^3.3.1
+  cloud_firestore: ^4.17.2
   firebase_auth: ^4.19.3
   firebase_core: ^2.30.1
   flutter:
@@ -21,4 +23,5 @@ flutter:
   uses-material-design: true
   
   assets:
-    - assets/images/onepi.png
+    - assets/images/img_300694_17.jpg
+    - assets/images/OP07-019.png
