@@ -12,23 +12,7 @@ class EditDetailPage extends StatefulWidget {
 }
 
 class _EditDetailPageState extends State<EditDetailPage> {
-  int cardCount = 0;
   Map<String, int> cardCountMap = {};
-  void incrementCount() {
-    if (cardCount < 4) {
-      setState(() {
-        cardCount++;
-      });
-    }
-  }
-
-  void decrementCount() {
-    if (cardCount > 0) {
-      setState(() {
-        cardCount--;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
