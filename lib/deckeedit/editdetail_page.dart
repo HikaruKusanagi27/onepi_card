@@ -177,13 +177,13 @@ class _EditDetailPageState extends State<EditDetailPage> {
                                           children: [
                                             ElevatedButton(
                                               onPressed: () {
-                                                setState(() {
-                                                  if (dialogCount > 0) {
-                                                    dialogCount--; // 減らす
-                                                    cardCountMap[characterKey] =
-                                                        dialogCount; // カウントマップを更新する
-                                                  }
-                                                });
+                                                if (dialogCount > 0) {
+                                                  dialogCount--; // 減らす
+                                                  cardCountMap[characterKey] =
+                                                      dialogCount; // カウントマップを更新する
+                                                  print(
+                                                      'dialogCount: $dialogCount, cardCountMap: $cardCountMap');
+                                                }
                                               },
                                               child: const Text(
                                                 '減らす',
@@ -204,11 +204,13 @@ class _EditDetailPageState extends State<EditDetailPage> {
                                             SizedBox(width: 20),
                                             ElevatedButton(
                                               onPressed: () {
-                                                setState(() {
+                                                if (dialogCount < 4) {
                                                   dialogCount++; // 増やす
                                                   cardCountMap[characterKey] =
                                                       dialogCount; // カウントマップを更新する
-                                                });
+                                                  print(
+                                                      'dialogCount: $dialogCount, cardCountMap: $cardCountMap');
+                                                }
                                               },
                                               child: const Text(
                                                 '増やす',
