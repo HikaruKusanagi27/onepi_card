@@ -147,7 +147,7 @@ class _EditDetailPageState extends State<EditDetailPage> {
                       cardCountMap.containsKey(characterKey)
                           ? cardCountMap[characterKey]!
                           : 0; // カウントマップから初期値を取得する
-
+                  int dialogCount = initialCount; // ダイアログ内のテキストを更新するための状態
                   return widget.cardData.containsKey(characterKey)
                       ? InkWell(
                           onTap: () {
@@ -156,9 +156,6 @@ class _EditDetailPageState extends State<EditDetailPage> {
                               builder: (context) {
                                 return StatefulBuilder(
                                     builder: (context, setState) {
-                                  // ダイアログ内のテキストを更新するための状態
-                                  int dialogCount = initialCount;
-
                                   return Dialog(
                                     backgroundColor: Colors.transparent,
                                     child: Column(
@@ -177,13 +174,15 @@ class _EditDetailPageState extends State<EditDetailPage> {
                                           children: [
                                             ElevatedButton(
                                               onPressed: () {
-                                                if (dialogCount > 0) {
-                                                  dialogCount--; // 減らす
-                                                  cardCountMap[characterKey] =
-                                                      dialogCount; // カウントマップを更新する
-                                                  print(
-                                                      'dialogCount: $dialogCount, cardCountMap: $cardCountMap');
-                                                }
+                                                setState(() {
+                                                  if (dialogCount > 0) {
+                                                    dialogCount--; // 減らす
+                                                    cardCountMap[characterKey] =
+                                                        dialogCount; // カウントマップを更新する
+                                                  }
+                                                });
+                                                print(
+                                                    'dialogCount: $dialogCount, cardCountMap: $cardCountMap');
                                               },
                                               child: const Text(
                                                 '減らす',
@@ -204,13 +203,14 @@ class _EditDetailPageState extends State<EditDetailPage> {
                                             SizedBox(width: 20),
                                             ElevatedButton(
                                               onPressed: () {
-                                                if (dialogCount < 4) {
-                                                  dialogCount++; // 増やす
-                                                  cardCountMap[characterKey] =
-                                                      dialogCount; // カウントマップを更新する
-                                                  print(
-                                                      'dialogCount: $dialogCount, cardCountMap: $cardCountMap');
-                                                }
+                                                setState(() {
+                                                  if (dialogCount < 4) {
+                                                    dialogCount++; // 増やす
+                                                    cardCountMap[characterKey] =
+                                                        dialogCount; // カウントマップを更新する
+                                                  }
+                                                  // print('dialogCount: $dialogCount, cardCountMap: $cardCountMap');
+                                                });
                                               },
                                               child: const Text(
                                                 '増やす',
