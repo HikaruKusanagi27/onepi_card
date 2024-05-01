@@ -32,80 +32,35 @@ class _EditDetailPageState extends State<EditDetailPage> {
                     showDialog(
                       context: context,
                       builder: (context) {
-                        return SingleChildScrollView(
-                          child: AlertDialog(
-                            title: Text('デッキ名: 赤ルフィ'),
-                            content: Text('50枚'),
-                            actions: [
-                              Column(
+                        final cardKeys = cardCountMap.keys.toList();
+                        return Dialog(
+                          child: GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              // mainAxisSpacing: 10.0, // 任意の間隔を追加できます
+                              // crossAxisSpacing: 10.0,
+                            ),
+                            itemCount: cardKeys.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final characterKey = cardKeys[index];
+                              final count = cardCountMap[characterKey] ?? 0;
+                              print(
+                                  'dialogCount: $count cardCountMap: $cardCountMap');
+                              return Column(
                                 children: [
-                                  Text('リーダーカード'),
-                                  SizedBox(
-                                      width: 120,
+                                  Expanded(
+                                    child: SizedBox(
+                                      height: 510,
                                       child: Image.network(
-                                          widget.cardData['imageURL'])),
-                                  Text('キャラクターカード'),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                          width: 120,
-                                          child: Image.network(
-                                              widget.cardData['imageURL'])),
-                                      SizedBox(
-                                          width: 120,
-                                          child: Image.network(
-                                              widget.cardData['imageURL'])),
-                                    ],
+                                        widget.cardData[characterKey],
+                                      ),
+                                    ),
                                   ),
-                                  Text('イベントカード'),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                          width: 120,
-                                          child: Image.network(
-                                              widget.cardData['imageURL'])),
-                                      SizedBox(
-                                          width: 120,
-                                          child: Image.network(
-                                              widget.cardData['imageURL'])),
-                                    ],
-                                  ),
-                                  Text('ステージカード'),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                          width: 120,
-                                          child: Image.network(
-                                              widget.cardData['imageURL'])),
-                                      SizedBox(
-                                          width: 120,
-                                          child: Image.network(
-                                              widget.cardData['imageURL'])),
-                                    ],
-                                  ),
+                                  Text('$count 枚'),
                                 ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text('閉じる'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text('デッキを作成'),
-                                  ),
-                                ],
-                              ),
-                            ],
+                              );
+                            },
                           ),
                         );
                       },
@@ -133,9 +88,7 @@ class _EditDetailPageState extends State<EditDetailPage> {
               'キャラクター',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: 510,
-              width: 420,
+            Expanded(
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -181,8 +134,7 @@ class _EditDetailPageState extends State<EditDetailPage> {
                                                         dialogCount; // カウントマップを更新する
                                                   }
                                                 });
-                                                print(
-                                                    'dialogCount: $dialogCount, cardCountMap: $cardCountMap');
+                                                // print('dialogCount: $dialogCount, cardCountMap: $cardCountMap');
                                               },
                                               child: const Text(
                                                 '減らす',
