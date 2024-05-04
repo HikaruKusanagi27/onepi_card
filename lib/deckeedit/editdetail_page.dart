@@ -27,6 +27,7 @@ class _EditDetailPageState extends State<EditDetailPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                // Firebaseに登録したデッキリストを表示
                 InkWell(
                   onTap: () {
                     showDialog(
@@ -78,6 +79,10 @@ class _EditDetailPageState extends State<EditDetailPage> {
                                         cardCountMap[characterKey] ?? 0;
                                     // print(
                                     //     'dialogCount: $count cardCountMap: $cardCountMap');
+                                    if (count == 0) {
+                                      return SizedBox
+                                          .shrink(); // 0枚の場合は何も表示させない
+                                    }
                                     return Column(
                                       children: [
                                         Expanded(
@@ -102,6 +107,7 @@ class _EditDetailPageState extends State<EditDetailPage> {
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),
+                // Firebaseに登録したデッキリストを表示
               ],
             ),
             const Text(
