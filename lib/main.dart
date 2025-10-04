@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:onepi_app/firebase_options.dart';
-import 'package:onepi_app/home/home_page.dart';
+import 'package:uniare/firebase_options.dart';
+import 'package:uniare/home/home_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

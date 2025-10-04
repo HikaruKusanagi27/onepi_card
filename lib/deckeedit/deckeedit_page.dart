@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:onepi_app/deckeedit/editdetail_page.dart';
+import 'package:uniare/deckeedit/editdetail_page.dart';
 
 class DeckEditPage extends StatelessWidget {
   const DeckEditPage({super.key});
