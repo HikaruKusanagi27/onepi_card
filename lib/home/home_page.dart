@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onepi_app/deckeedit/deckeedit_page.dart';
+import 'package:uniare/deckeedit/deckeedit_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
