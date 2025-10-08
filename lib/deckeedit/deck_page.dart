@@ -20,11 +20,10 @@ class _DeckPageState extends State<DeckPage> {
             content: Text('ダイアログの内容'),
             actions: [
               TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('閉じる'),
-              ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('閉じる')),
             ],
           );
         },
